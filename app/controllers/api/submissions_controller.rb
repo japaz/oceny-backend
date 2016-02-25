@@ -1,10 +1,10 @@
 class Api::SubmissionsController < ApplicationController
   def pending
-    render json: Submission.all
+    render json: Submission.where(rate: nil)
   end
 
   def evaluated
-    render json: Submission.all
+    render json: Submission.where.not(rate: nil)
   end
 
   def rejected
